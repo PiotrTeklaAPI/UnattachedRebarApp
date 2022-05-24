@@ -1,0 +1,11 @@
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.csproj.AssemblyReference.cache
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.csproj.SuggestedBindingRedirects.cache
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp___DataGridView.Form1.resources
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp___DataGridView.Properties.Resources.resources
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.csproj.GenerateResource.cache
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.csproj.CoreCompileInputs.cache
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView\bin\Debug\UnattachedRebarApp - DataGridView.exe.config
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView\bin\Debug\UnattachedRebarApp - DataGridView.exe
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView\bin\Debug\UnattachedRebarApp - DataGridView.pdb
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.exe
+E:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp - DataGridView\UnattachedRebarApp - DataGridView.pdb

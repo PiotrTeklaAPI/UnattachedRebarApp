@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TEP Version="1.0">
+
+	<Product Id="UnattachedRebarApp" UpgradeCode="EF70D1F3-FA63-4C86-BE7E-2CC22F76D931" Version="1.0" Language="1033"
+		Name="Unattached Rebar Extension" Manufacturer="Piotr Pasiak"  Description= "This extension can manage unattached rebars and create reports for owners."
+		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png" Type= "Extension"> 
+		<TeklaVersions>
+			<TeklaVersion Name="2099.1"/>
+			<MinTeklaVersion Name="2020.0"/>
+			<MaxTeklaVersion Name="2099.1"/>
+		</TeklaVersions>
+	</Product>
+	 
+	<SourcePathVariables>
+		<SourcePathVariable Id="TepOutputFolder" Value="%TEPDEFINITIONFILEFOLDER%\output" Comment="This provides the location where the package builder is to save the package."/>
+		<SourcePathVariable Id="BinariesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\binaries"/>
+		<SourcePathVariable Id="StandardFileFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\standard file"/>
+		<SourcePathVariable Id="MessagesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\messages"/>
+		<SourcePathVariable Id="BitmapsFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\bitmaps"/>
+    </SourcePathVariables>
+
+	<TargetPathVariables>
+		<PathVariable Id="ModelPluginsDirectory" Value="%ENVDIR%\extensions\plugins\tekla\model\"/>
+		<PathVariable Id="ModelApplicationsDirectory" Value="%ENVDIR%\extensions\applications\tekla\model\"/>
+		<PathVariable Id="ExtensionsDir" Value="%commonEnvFolder%\extensions\"/>
+		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\BoltGroupCreator\"/>
+		<PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
+		<PathVariable Id="AttributeFileDirectory" Value="%commonEnvFolder%\system\"/>
+		<PathVariable Id="CommonMacroDirectory" Value="%commonEnvFolder%\macros\modeling\"/>
+	</TargetPathVariables>
+
+	<Component Id="TheExtensionComponent" Guid="7709FE25-5293-4BBF-AB37-13F72C6F6CCB">
+		<File Id="Icon" Source="%BitmapsFolder%\UnattachedRebarApp.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="BoltGroupCreator" Source="%BinariesFolder%\UnattachedRebarApp.exe" Target="%BinariesTargetDirectory%"/>
+		<File Id="UnattachedRebarApp.exe.config" Source="%StandardFileFolder%\UnattachedRebarApp.exe.config" Target="%AttributeFileDirectory%"/>
+		<File Id="UnattachedRebarApp.pdb" Source="%StandardFileFolder%\UnattachedRebarApp.pdb" Target="%AttributeFileDirectory%"/>
+	</Component>
+
+	<Feature Id="TheExtensionFeature" Title="ExtensionFeature">
+		<ComponentRef ReferenceId="TheExtensionComponent" />
+	</Feature>
+
+ </TEP>
