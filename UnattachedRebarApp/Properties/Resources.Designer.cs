@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UnattachedRebarApp___DataGridView.Properties
+namespace UnattachedRebarApp.Properties
 {
 
 

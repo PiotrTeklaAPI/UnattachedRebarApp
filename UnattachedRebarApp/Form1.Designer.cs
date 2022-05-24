@@ -1,6 +1,6 @@
-﻿namespace UnattachedRebarApp___DataGridView
+﻿namespace UnattachedRebarApp
 {
-    partial class Form1
+    partial class MainClass
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainClass));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Display = new System.Windows.Forms.Button();
             this.Select_in_Model = new System.Windows.Forms.Button();
