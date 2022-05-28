@@ -14,20 +14,32 @@ namespace UnattachedRebarApp
     public class UnattachedRebars
     {
         private List<RebarInfo> _rebars;
-        IDictionary <string, List<RebarInfo>> rebarsOwners = new Dictionary<string, List<RebarInfo>>();
+        IDictionary <string, List<RebarInfo>> rebarsByOwner = new Dictionary<string, List<RebarInfo>>();
         public List<RebarInfo> GetRebars { get { return _rebars; } }
         public List<string> GetOwners()
         {
-            List<string> owners = new List<string>();
-            foreach (RebarInfo rebarinfo in _rebars)
-            {
-                if (!owners.Contains(rebarinfo.Owner))
-                {
-                    owners.Add(rebarinfo.Owner);
-                }
-            }
-            return owners;
+            //List<string> owners = new List<string>();
+            //foreach (RebarInfo rebarinfo in _rebars)
+            //{
+            //    if (!owners.Contains(rebarinfo.Owner))
+            //    {
+            //        owners.Add(rebarinfo.Owner);
+            //    }
+            //}
+            return rebarsByOwner.Keys.ToList();
 
+        }
+        private void AddNewRebarToCollections(RebarInfo rebarInfo)
+        {
+            _rebars.Add(rebarInfo);
+            if (rebarsByOwner.ContainsKey(rebarInfo.Owner))
+            {
+                rebarsByOwner[rebarInfo.Owner].Add(rebarInfo);
+            }
+            else
+            {
+                rebarsByOwner.Add(rebarInfo.Owner, new List<RebarInfo> { rebarInfo });
+            }
         }
         public void LoadUnattachedReabrsFromModel()
         {
@@ -52,7 +64,7 @@ namespace UnattachedRebarApp
                         {
                             string rebarOwner = "Empty";
                             modelObjectRebar.GetReportProperty("OWNER", ref rebarOwner);
-                            _rebars.Add(new RebarInfo(modelObjectRebar.Name, modelObjectRebar.Identifier.GUID, rebarOwner));
+                            
                         }
                     }
                 }
