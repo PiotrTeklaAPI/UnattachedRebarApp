@@ -20,3 +20,17 @@ F:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\Unatt
 F:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.csproj.CoreCompileInputs.cache
 F:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.exe
 F:\+TeklaOpenAPIApplications\UnattachedRebarApp - DataGridView\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.pdb
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Debug\UnattachedRebarApp.exe.config
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Debug\UnattachedRebarApp.exe
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Debug\UnattachedRebarApp.pdb
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.csproj.AssemblyReference.cache
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.csproj.SuggestedBindingRedirects.cache
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.MainClass.resources
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp___DataGridView.Properties.Resources.resources
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.csproj.GenerateResource.cache
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.csproj.CoreCompileInputs.cache
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.exe
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\ObjDir\2019\UnattachedRebarApp\UnattachedRebarApp.pdb
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Release\UnattachedRebarApp.exe.config
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Release\UnattachedRebarApp.exe
+F:\TeklaOpenAPIApplications\UnattachedRebarApp\UnattachedRebarApp\bin\Release\UnattachedRebarApp.pdb

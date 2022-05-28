@@ -16,7 +16,7 @@ namespace UnattachedRebarApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainClass());
+            Application.Run(new MainForm());
         }
     }
 }

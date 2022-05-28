@@ -1,6 +1,6 @@
 ﻿namespace UnattachedRebarApp
 {
-    partial class MainClass
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainClass));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Display = new System.Windows.Forms.Button();
             this.Select_in_Model = new System.Windows.Forms.Button();
             this.Create_separate_for_all_owners = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxOwners = new System.Windows.Forms.ListBox();
             this.Create_for_selected = new System.Windows.Forms.Button();
             this.One_report_for_all_owners = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -95,14 +95,14 @@
             this.Create_separate_for_all_owners.UseVisualStyleBackColor = true;
             this.Create_separate_for_all_owners.Click += new System.EventHandler(this.Create_separate_for_all_owners_Click);
             // 
-            // listBox1
+            // listBoxOwners
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(533, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(196, 394);
-            this.listBox1.TabIndex = 5;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxOwners.FormattingEnabled = true;
+            this.listBoxOwners.Location = new System.Drawing.Point(533, 12);
+            this.listBoxOwners.Name = "listBoxOwners";
+            this.listBoxOwners.Size = new System.Drawing.Size(196, 394);
+            this.listBoxOwners.TabIndex = 5;
+            this.listBoxOwners.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Create_for_selected
             // 
@@ -134,7 +134,7 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "REPORTS:";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,13 +142,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.One_report_for_all_owners);
             this.Controls.Add(this.Create_for_selected);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxOwners);
             this.Controls.Add(this.Create_separate_for_all_owners);
             this.Controls.Add(this.Select_in_Model);
             this.Controls.Add(this.Display);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "UnattachedRebarApp";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -163,7 +163,7 @@
         private System.Windows.Forms.Button Display;
         private System.Windows.Forms.Button Select_in_Model;
         private System.Windows.Forms.Button Create_separate_for_all_owners;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxOwners;
         private System.Windows.Forms.Button Create_for_selected;
         private System.Windows.Forms.Button One_report_for_all_owners;
         private System.Windows.Forms.Label label1;

@@ -18,44 +18,85 @@ using System.Threading;
 
 namespace UnattachedRebarApp
 {
-    public partial class MainClass : Form
+    public partial class MainForm: Form
     {
         private readonly Model model = new Model();
+        private UnattachedRebars _unattachedRebars;
         List<Reinforcement> modelObjectsRebarUnattached = new List<Reinforcement>();//pierwsza lista prętów niedopiętych
-        List<RebarInfoType> displayListOfRebars = new List<RebarInfoType>();//Lista dla dataGridView
+        List<RebarInfo> displayListOfRebars = new List<RebarInfo>();//Lista dla dataGridView
         List<Reinforcement> toSelectionRebars = new List<Reinforcement>();//Lista dla zaznaczenia kilku prętów z listy i pokazaniu w modelu
         List<Guid> GUID = new List<Guid>();//lista Guidów stworzona dla funkcji kliknij i zaznaczy pręt w modelu
         List<Reinforcement> toReportRebarsByOwner = new List<Reinforcement>();//lista stworzona do użycia dla prętów niedopiętych do betonu stworzonych przez jedną osobę
         List<string> owners = new List<string>(); // lista osób, które stworzyły jakikolwiek pręt niedopięty do betonu
         List<Guid> allGUIDs = new List<Guid>();
-        public MainClass()
+        public MainForm()
         {
             InitializeComponent();
+
+            _unattachedRebars = new UnattachedRebars();
         }
-        public List<Reinforcement> GetModelObjectsRebarUnattached(Model model)
+        private void Display_Click(object sender, EventArgs e)
         {
-            // metoda tworząca listę prętów nie dołączonych do żadnego cast unitu.
-            ModelObjectEnumerator simplerEnumerator = model.GetModelObjectSelector().GetAllObjectsWithType(new Type[] {typeof(Reinforcement)});
-            while (simplerEnumerator.MoveNext())
-            {
-                Reinforcement modelObjectRebar = simplerEnumerator.Current as Reinforcement;
-                if (modelObjectRebar != null)
-                {
-                    string valuePARTGUID = "None";
-                    modelObjectRebar.GetReportProperty("PART.GUID", ref valuePARTGUID);
-                    if (valuePARTGUID.Length == 36)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        modelObjectsRebarUnattached.Add(modelObjectRebar);
-                        allGUIDs.Add(modelObjectRebar.Identifier.GUID);
-                    }
-                }
-            }
-            return modelObjectsRebarUnattached;
+            _unattachedRebars.LoadUnattachedReabrsFromModel();
+            dataGridView1.DataSource = _unattachedRebars.GetRebars;
+            listBoxOwners.DataSource = _unattachedRebars.GetOwners();
+            //modelObjectsRebarUnattached.Clear();
+            //displayListOfRebars.Clear();
+            //dataGridView1.DataSource = null;
+            //{
+
+            //    List<Reinforcement> modelObjectsRebarUnattached = GetModelObjectsRebarUnattached(model);
+            //    if (modelObjectsRebarUnattached.Count <= 0)
+            //    {
+            //        Operation.DisplayPrompt("No unattached rebars detected!");
+            //    }
+            //    else
+            //    {
+            //        Tekla.Structures.Model.UI.ModelObjectSelector selector = new Tekla.Structures.Model.UI.ModelObjectSelector();
+            //        selector.Select(new System.Collections.ArrayList(modelObjectsRebarUnattached));
+            //    }
+            //}
+            //foreach (Reinforcement reinforcement in modelObjectsRebarUnattached)
+            //{
+            //    string rebarOwner = "Empty";
+            //    reinforcement.GetReportProperty("OWNER", ref rebarOwner);
+            //    RebarInfo rebarInfo = new RebarInfo(reinforcement.Name, reinforcement.Identifier.GUID, rebarOwner);
+            //    displayListOfRebars.Add(rebarInfo);
+            //    if (!listBoxOwners.Items.Contains(rebarOwner) && !owners.Contains(rebarOwner))
+            //    {
+            //        listBoxOwners.Items.Add(rebarOwner);
+            //        owners.Add(rebarOwner);
+            //    }
+            //}
+            //dataGridView1.DataSource = displayListOfRebars;
+            //listBoxOwners.Sorted = true;
+
+
         }
+        //public List<Reinforcement> GetModelObjectsRebarUnattached(Model model)
+        //{
+        //    // metoda tworząca listę prętów nie dołączonych do żadnego cast unitu.
+        //    ModelObjectEnumerator simplerEnumerator = model.GetModelObjectSelector().GetAllObjectsWithType(new Type[] {typeof(Reinforcement)});
+        //    while (simplerEnumerator.MoveNext())
+        //    {
+        //        Reinforcement modelObjectRebar = simplerEnumerator.Current as Reinforcement;
+        //        if (modelObjectRebar != null)
+        //        {
+        //            string valuePARTGUID = "None";
+        //            modelObjectRebar.GetReportProperty("PART.GUID", ref valuePARTGUID);
+        //            if (valuePARTGUID.Length == 36)
+        //            {
+        //                continue;
+        //            }
+        //            else
+        //            {
+        //                modelObjectsRebarUnattached.Add(modelObjectRebar);
+        //                allGUIDs.Add(modelObjectRebar.Identifier.GUID);
+        //            }
+        //        }
+        //    }
+        //    return modelObjectsRebarUnattached;
+        //}
         public List<Reinforcement> GetModelObjectsRebarSelected(Model model, List<Guid> listGUID)
         {
             ModelObjectEnumerator simplerEnumerator = model.GetModelObjectSelector().GetAllObjectsWithType(new Type[] {typeof(Reinforcement)});
@@ -104,41 +145,7 @@ namespace UnattachedRebarApp
             }
         }
 
-        private void Display_Click(object sender, EventArgs e)
-        {
-            modelObjectsRebarUnattached.Clear();
-            displayListOfRebars.Clear();
-            dataGridView1.DataSource = null;
-            {
-
-                List<Reinforcement> modelObjectsRebarUnattached = GetModelObjectsRebarUnattached(model);
-                if (modelObjectsRebarUnattached.Count <= 0)
-                {
-                    Operation.DisplayPrompt("No unattached rebars detected!");
-                }
-                else
-                {
-                    Tekla.Structures.Model.UI.ModelObjectSelector selector = new Tekla.Structures.Model.UI.ModelObjectSelector();
-                    selector.Select(new System.Collections.ArrayList(modelObjectsRebarUnattached));
-                }
-            }
-            foreach (Reinforcement reinforcement in modelObjectsRebarUnattached)
-            {
-                string rebarOwner = "Empty";
-                reinforcement.GetReportProperty("OWNER", ref rebarOwner);
-                RebarInfoType rebarInfo = new RebarInfoType(reinforcement.Name, reinforcement.Identifier.GUID, rebarOwner);
-                displayListOfRebars.Add(rebarInfo);
-                if (!listBox1.Items.Contains(rebarOwner) && !owners.Contains(rebarOwner))
-                {
-                    listBox1.Items.Add(rebarOwner);
-                    owners.Add(rebarOwner);
-                }
-            }
-            dataGridView1.DataSource = displayListOfRebars;
-            listBox1.Sorted = true;
-
-
-        }
+        
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -197,13 +204,13 @@ namespace UnattachedRebarApp
         }
         private void Create_separate_for_all_owners_Click(object sender, EventArgs e)//działa, choć trzeba sprawdzić na modelu sharing
         {
-            if (listBox1.Items == null)
+            if (listBoxOwners.Items == null)
             {
                 Operation.DisplayPrompt("No Rebars for report creation.");
             }
             else
             {
-                foreach (string ownerInList in listBox1.Items)
+                foreach (string ownerInList in listBoxOwners.Items)
                 {
                     List<Reinforcement> reinforcements = GetReinforcementByOwners(model, allGUIDs, ownerInList);
                     Tekla.Structures.Model.UI.ModelObjectSelector selector = new Tekla.Structures.Model.UI.ModelObjectSelector();
@@ -218,13 +225,13 @@ namespace UnattachedRebarApp
         }
         private void Create_for_selected_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItems.Count == 0)
+            if (listBoxOwners.SelectedItems.Count == 0)
             {
                 Operation.DisplayPrompt("No owner selected from the list.");
             }
             else
             {
-                foreach (string ownerInList in listBox1.SelectedItems)
+                foreach (string ownerInList in listBoxOwners.SelectedItems)
                 {
                     List<Reinforcement> reinforcements = GetReinforcementByOwners(model, allGUIDs, ownerInList);
                     Tekla.Structures.Model.UI.ModelObjectSelector selector = new Tekla.Structures.Model.UI.ModelObjectSelector();
