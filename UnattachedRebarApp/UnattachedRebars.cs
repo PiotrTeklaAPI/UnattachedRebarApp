@@ -18,16 +18,7 @@ namespace UnattachedRebarApp
         public List<RebarInfo> GetRebars { get { return _rebars; } }
         public List<string> GetOwners()
         {
-            //List<string> owners = new List<string>();
-            //foreach (RebarInfo rebarinfo in _rebars)
-            //{
-            //    if (!owners.Contains(rebarinfo.Owner))
-            //    {
-            //        owners.Add(rebarinfo.Owner);
-            //    }
-            //}
             return rebarsByOwner.Keys.ToList();
-
         }
         private void AddNewRebarToCollections(RebarInfo rebarInfo)
         {
@@ -40,6 +31,10 @@ namespace UnattachedRebarApp
             {
                 rebarsByOwner.Add(rebarInfo.Owner, new List<RebarInfo> { rebarInfo });
             }
+        }
+        public List <RebarInfo> GetRebarsByOwner(string owner)
+        {
+            return rebarsByOwner[owner];
         }
         public void LoadUnattachedReabrsFromModel()
         {
@@ -54,9 +49,11 @@ namespace UnattachedRebarApp
                     Reinforcement modelObjectRebar = simplerEnumerator.Current as Reinforcement;
                     if (modelObjectRebar != null)
                     {
-                        string valuePARTGUID = "None";
-                        modelObjectRebar.GetReportProperty("PART.GUID", ref valuePARTGUID);
-                        if (valuePARTGUID.Length == 36)
+                        //string valuePARTGUID = "None";
+                        //modelObjectRebar.GetReportProperty("PART.GUID", ref valuePARTGUID);
+                        //if (valuePARTGUID.Length == 36)
+                        Guid zeroGuid = new Guid("00000000-0000-0000-0000-000000000000");
+                        if (modelObjectRebar.Father.Identifier.GUID != zeroGuid)
                         {
                             continue;
                         }
@@ -64,7 +61,7 @@ namespace UnattachedRebarApp
                         {
                             string rebarOwner = "Empty";
                             modelObjectRebar.GetReportProperty("OWNER", ref rebarOwner);
-                            
+                            AddNewRebarToCollections(new RebarInfo(modelObjectRebar.Name, modelObjectRebar.Identifier.GUID, rebarOwner));
                         }
                     }
                 }
